@@ -1,0 +1,113 @@
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    background-color: rgb(232, 232, 255);
+    color: black;
+    font-family: sans-serif;
+}
+
+
+main{
+    height: 100vh;
+    width: 100%;
+
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 0;
+}
+
+#FormData
+{
+    height: 60vh;
+    width: 500px;
+    background-color: white;
+    box-shadow: 0px 5px 5px gray;
+    border-radius: 15px;
+    margin-left: 1.3rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+#FormData form
+{
+    width: 80%;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    row-gap: 1rem;
+
+}
+
+#FormData form input
+{
+    padding: .7rem 1rem;
+    border: none;
+    border-bottom: 1px solid black;
+    margin-bottom: 20px;
+    outline: none;
+    font-size: 1rem;
+    color: black;
+}
+
+#FormData form button
+{
+    padding: .8rem 1.3rem;
+    border: none;
+    box-shadow: 0px 5px 10px gray;
+    background-color: rgb(255, 0, 123);
+    color: white;
+    font-size: 1rem;
+
+    user-select: none;
+    cursor: pointer;
+}
+
+#FormData form button:active
+{
+    transform: scale(0.98);
+    
+
+}
+
+#ListOfUsers {
+    background-color: white;
+    color: black;
+    height: 100vh;
+    width: 300px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    padding: 2rem 2rem;
+    row-gap: 1rem;
+
+}
+
+#ListOfUsers h1 {
+    font-size: 1.5rem;
+    font-weight: 600;
+}
+
+#ListOfUsers ul {
+min-height: 100%;
+width: 90%;
+height: fit-content;
+overflow: auto;
+}
+
+#ListOfUsers ul li {
+    list-style: none;
+    padding: 1.7rem 3rem;
+    background-color: lightblue;
+    color: black;
+    border-radius: 15px;
+    font-size: 20px;
+    margin-bottom: 20px;
+}
