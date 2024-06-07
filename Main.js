@@ -11,16 +11,31 @@ MyFrom.addEventListener("submit", (e)=>
         Name: e.target[1].value,
         Age: e.target[2].value,
     }
-    AllUsers.push(P);
-    console.log(AllUsers)
+   
+    let Flag = false;
+    for(let i of AllUsers)
+    {
+        if(i.Id == P.Id)
+        {
+          alert("Soory User Already Exists");
+          Flag = true;
+        }
+    }
 
-    let L = document.createElement('li');
-    L.innerText = P.Name;
-    L.addEventListener('click',() =>{
-        let Index = AllUsers.indexOf(P);
-        console.log(AllUsers[Index]);
-    });
-    ListUl.appendChild(L);
+    if(Flag == false)
+    {
+        AllUsers.push(P);
+        console.log(AllUsers)
+    
+        let L = document.createElement('li');
+        L.innerText = P.Name;
+        L.addEventListener('click',() =>{
+            let Index = AllUsers.indexOf(P);
+            
+            console.log(AllUsers[Index]);
+        });
+        ListUl.appendChild(L);
+    }
 
 });
 
