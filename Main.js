@@ -1,6 +1,12 @@
 let MyFrom = document.getElementsByTagName("form")[0];
 let ListUl = document.getElementById("ListUl");
 
+let PDID = document.getElementById("PersonDisplayId");
+let PDName = document.getElementById("PersonDisplayName");
+let PDAge = document.getElementById("PersonDisplayAge");
+
+
+
 let AllUsers = [];
 
 MyFrom.addEventListener("submit", (e)=> 
@@ -17,7 +23,7 @@ MyFrom.addEventListener("submit", (e)=>
     {
         if(i.Id == P.Id)
         {
-          alert("Soory User Already Exists");
+          alert("Sorry User Already Exists");
           Flag = true;
         }
     }
@@ -33,6 +39,9 @@ MyFrom.addEventListener("submit", (e)=>
             let Index = AllUsers.indexOf(P);
             
             console.log(AllUsers[Index]);
+            PDID.innerText = AllUsers[Index].Id;
+            PDName.innerText = AllUsers[Index].Name;
+            PDAge.innerText = AllUsers[Index].Age;
         });
         ListUl.appendChild(L);
     }

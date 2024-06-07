@@ -77,6 +77,34 @@ main{
 
 }
 
+#ShowCaseData
+{
+    font-size: .8rem;
+    height: 300px;
+    width: 350px;
+    background-color: white;
+    border-radius: 20px;
+    display: flex;
+    padding: 1rem;
+    align-items: center;
+    flex-direction: column;
+}
+
+#ShowCaseData table
+{
+    margin-top: 20px;
+    font-size: 1.3rem;
+    padding: 20px;
+}
+
+#ShowCaseData table td,th
+{
+    border-bottom: 1px solid black;
+    padding: 20px;
+}
+
+
+
 #ListOfUsers {
     background-color: white;
     color: black;
