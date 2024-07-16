@@ -1,50 +1,81 @@
-let MyFrom = document.getElementsByTagName("form")[0];
-let ListUl = document.getElementById("ListUl");
+let Form = document.getElementById('Form');
+let ListUl = document.getElementById('ListUl');
+let IdErr = document.getElementById('IdErr');
 
-let PDID = document.getElementById("PersonDisplayId");
-let PDName = document.getElementById("PersonDisplayName");
-let PDAge = document.getElementById("PersonDisplayAge");
+let PersonDisplayId = document.getElementById('PersonDisplayId');
+let PersonDisplayName = document.getElementById('PersonDisplayName');
+let PersonDisplayAge = document.getElementById('PersonDisplayAge');
 
+let allUsers = [];
 
-
-let AllUsers = [];
-
-MyFrom.addEventListener("submit", (e)=> 
+function Delete()
 {
+    let arr = allUsers.filter((e)=>e.Id != U.Id);
+    allUsers = arr;
+    Display();
+}
+
+
+function Display()
+{
+    ListUl.innerHTML = '';
+
+    allUsers.map((U)=>{
+        let Li = document.createElement("li");
+        Li.innerText = U.Name;
+
+        let LBtn = document.createElement("Button");
+        LBtn.innerHTML = 'Delete';
+        LBtn.addEventListener("Click",()=>{
+         Delete();
+        })
+        Li.appendChild(LBtn);
+
+        Li.addEventListener('click',()=>{
+            PersonDisplayId.innerHTML = U.Id;
+            PersonDisplayName.innerHTML = U.Name;
+            PersonDisplayAge.innerHTML = U.Age;
+        });
+        ListUl.append(Li);
+    })
+
+}
+
+
+Form.addEventListener('submit',(e)=>{
     e.preventDefault();
-    let P = {
+
+    let Obj = {
         Id: e.target[0].value,
         Name: e.target[1].value,
         Age: e.target[2].value,
     }
    
-    let Flag = false;
-    for(let i of AllUsers)
-    {
-        if(i.Id == P.Id)
-        {
-          alert("Sorry User Already Exists");
-          Flag = true;
-        }
-    }
 
-    if(Flag == false)
+   let Flag = false
+   for (i of allUsers)
+   {
+    if (Obj.Id == i.Id)
     {
-        AllUsers.push(P);
-        console.log(AllUsers)
+        Flag = true;
+        break;
+    }
+   }
+
+
+   if (Flag == false)
+   {
     
-        let L = document.createElement('li');
-        L.innerText = P.Name;
-        L.addEventListener('click',() =>{
-            let Index = AllUsers.indexOf(P);
-            
-            console.log(AllUsers[Index]);
-            PDID.innerText = AllUsers[Index].Id;
-            PDName.innerText = AllUsers[Index].Name;
-            PDAge.innerText = AllUsers[Index].Age;
-        });
-        ListUl.appendChild(L);
-    }
+    IdErr.style.display = 'none'
+    allUsers.push(Obj);
+    Display();
 
+   }
+   else
+   {
+    IdErr.innerHTML = 'Id already exists!';
+    IdErr.style.display = 'block'
+   }
+    
 });
 
