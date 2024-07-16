@@ -138,4 +138,35 @@ overflow: auto;
     border-radius: 15px;
     font-size: 20px;
     margin-bottom: 20px;
+    cursor: pointer;
+    user-select: none;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding-right: 10px;
+}
+
+#ListOfUsers ul li button
+{
+    padding: .2rem .6rem;
+    border: none;
+    font-size: .9rem;
+    background-color: rgb(255, 0, 123);
+    color: white;
+    cursor: pointer;
+    user-select: none;
+}
+
+#ListOfUsers ul li:active
+{
+    background-color: rgb(0, 200, 200);
+    color: white;
+}
+
+
+#IdErr
+{
+    font-size: 14px;
+    color: red;
+    display:  none;
 }
